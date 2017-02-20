@@ -1,0 +1,27 @@
+{
+	"name": "no-nonsense-google-analytics",
+	"title": "No-Nonsense Google Analytics",
+	"version": "1.0.0",
+	"description": "Simple Google Analytics plugin for embedding multiple Universal Analytics codes on your site. No dashboard, no reports.",
+	"author": {
+		"name": "inn_nerds",
+		"url": "http://nerds.inn.org"
+	},
+	"license": "GPLv2",
+	"devDependencies": {
+		"grunt": "latest",
+		"grunt-contrib-watch": "latest",
+		"grunt-wp-i18n": "latest",
+		"grunt-contrib-copy": "latest",
+		"grunt-text-replace": "latest",
+		"grunt-contrib-clean": "latest",
+		"grunt-contrib-compress": "latest",
+		"grunt-wp-deploy": "latest",
+		"load-grunt-tasks": "latest"
+	},
+	"scripts": {
+		"test": "dockunit",
+		"preversion": "npm test",
+		"version": "grunt version && git add ."
+	}
+}
