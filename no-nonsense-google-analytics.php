@@ -35,11 +35,6 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-/**
- * Built using generator-plugin-wp
- */
-
-
 // Include additional php files here.
 // require 'includes/admin.php';
 
@@ -175,38 +170,11 @@ final class No_Nonsense_Google_Analytics {
 	 * @return void
 	 */
 	public function init() {
-		// Bail early if requirements aren't met.
-		if ( ! $this->check_requirements() ) {
-			return;
-		}
-
 		// Load translated strings for plugin.
 		load_plugin_textdomain( 'no-nonsense-google-analytics', false, dirname( $this->basename ) . '/languages/' );
 
 		// Initialize plugin classes.
 		$this->plugin_classes();
-	}
-
-	/**
-	 * Check if the plugin meets requirements and
-	 * disable it if they are not present.
-	 *
-	 * @since  1.0.0
-	 * @return boolean result of meets_requirements
-	 */
-	public function check_requirements() {
-		// Bail early if plugin meets requirements.
-		if ( $this->meets_requirements() ) {
-			return true;
-		}
-
-		// Add a dashboard notice.
-		add_action( 'all_admin_notices', array( $this, 'requirements_not_met_notice' ) );
-
-		// Deactivate our plugin.
-		add_action( 'admin_init', array( $this, 'deactivate_me' ) );
-
-		return false;
 	}
 
 	/**
@@ -220,71 +188,6 @@ final class No_Nonsense_Google_Analytics {
 		// any developers from accidentally calling it too early and breaking things.
 		if ( function_exists( 'deactivate_plugins' ) ) {
 			deactivate_plugins( $this->basename );
-		}
-	}
-
-	/**
-	 * Check that all plugin requirements are met
-	 *
-	 * @since  1.0.0
-	 * @return boolean True if requirements are met.
-	 */
-	public function meets_requirements() {
-		// Do checks for required classes / functions
-		// function_exists('') & class_exists('').
-		// We have met all requirements.
-		// Add detailed messages to $this->activation_errors array
-		return true;
-	}
-
-	/**
-	 * Adds a notice to the dashboard if the plugin requirements are not met
-	 *
-	 * @since  1.0.0
-	 * @return void
-	 */
-	public function requirements_not_met_notice() {
-		// Compile default message.
-		$default_message = sprintf(
-			__( 'No-Nonsense Google Analytics is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'no-nonsense-google-analytics' ),
-			admin_url( 'plugins.php' )
-		);
-
-		// Default details to null.
-		$details = null;
-
-		// Add details if any exist.
-		if ( ! empty( $this->activation_errors ) && is_array( $this->activation_errors ) ) {
-			$details = '<small>' . implode( '</small><br /><small>', $this->activation_errors ) . '</small>';
-		}
-
-		// Output errors.
-		?>
-		<div id="message" class="error">
-			<p><?php echo $default_message; ?></p>
-			<?php echo $details; ?>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Magic getter for our object.
-	 *
-	 * @since  1.0.0
-	 * @param string $field Field to get.
-	 * @throws Exception Throws an exception if the field is invalid.
-	 * @return mixed
-	 */
-	public function __get( $field ) {
-		switch ( $field ) {
-			case 'version':
-				return self::VERSION;
-			case 'basename':
-			case 'url':
-			case 'path':
-				return $this->$field;
-			default:
-				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
 		}
 	}
 }
