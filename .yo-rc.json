@@ -1,12 +1,12 @@
 {
   "generator-plugin-wp": {
     "name": "No-Nonsense Google Analytics",
-    "homepage": "http://nerds.inn.org",
+    "homepage": "https://nerds.inn.org",
     "description": "Simple Google Analytics plugin for embedding multiple Universal Analytics codes on your site. No dashboard, no reports.",
     "version": "1.0.0",
     "author": "inn_nerds",
     "authoremail": "nerds@inn.org",
-    "authorurl": "http://nerds.inn.org",
+    "authorurl": "https://nerds.inn.org",
     "license": "GPLv2",
     "slug": "no-nonsense-google-analytics",
     "classname": "No-Nonsense_Google_Analytics",

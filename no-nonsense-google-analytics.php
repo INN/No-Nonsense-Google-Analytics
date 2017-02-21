@@ -1,17 +1,17 @@
 <?php
 /**
  * Plugin Name: No-Nonsense Google Analytics
- * Plugin URI:  http://nerds.inn.org
+ * Plugin URI:  https://nerds.inn.org
  * Description: Simple Google Analytics plugin for embedding multiple Universal Analytics codes on your site. No dashboard, no reports.
  * Version:     1.0.0
  * Author:      inn_nerds
- * Author URI:  http://nerds.inn.org
- * Donate link: http://nerds.inn.org
+ * Author URI:  https://nerds.inn.org
+ * Donate link: https://nerds.inn.org
  * License:     GPLv2
  * Text Domain: no-nonsense-google-analytics
  * Domain Path: /languages
  *
- * @link http://nerds.inn.org
+ * @link https://nerds.inn.org
  *
  * @package No-Nonsense Google Analytics
  * @version 1.0.0
@@ -46,15 +46,15 @@
 /**
  * Main initiation class
  *
- * @since  NEXT
+ * @since  1.0.0
  */
-final class No-Nonsense_Google_Analytics {
+final class No_Nonsense_Google_Analytics {
 
 	/**
 	 * Current version
 	 *
 	 * @var  string
-	 * @since  NEXT
+	 * @since  1.0.0
 	 */
 	const VERSION = '1.0.0';
 
@@ -62,7 +62,7 @@ final class No-Nonsense_Google_Analytics {
 	 * URL of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  1.0.0
 	 */
 	protected $url = '';
 
@@ -70,7 +70,7 @@ final class No-Nonsense_Google_Analytics {
 	 * Path of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  1.0.0
 	 */
 	protected $path = '';
 
@@ -78,7 +78,7 @@ final class No-Nonsense_Google_Analytics {
 	 * Plugin basename
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  1.0.0
 	 */
 	protected $basename = '';
 
@@ -86,23 +86,23 @@ final class No-Nonsense_Google_Analytics {
 	 * Detailed activation error messages
 	 *
 	 * @var array
-	 * @since  NEXT
+	 * @since  1.0.0
 	 */
 	protected $activation_errors = array();
 
 	/**
 	 * Singleton instance of plugin
 	 *
-	 * @var No-Nonsense_Google_Analytics
-	 * @since  NEXT
+	 * @var No_Nonsense_Google_Analytics
+	 * @since  1.0.0
 	 */
 	protected static $single_instance = null;
 
 	/**
 	 * Creates or returns an instance of this class.
 	 *
-	 * @since  NEXT
-	 * @return No-Nonsense_Google_Analytics A single instance of this class.
+	 * @since  1.0.0
+	 * @return No_Nonsense_Google_Analytics A single instance of this class.
 	 */
 	public static function get_instance() {
 		if ( null === self::$single_instance ) {
@@ -115,7 +115,7 @@ final class No-Nonsense_Google_Analytics {
 	/**
 	 * Sets up our plugin
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 */
 	protected function __construct() {
 		$this->basename = plugin_basename( __FILE__ );
@@ -126,18 +126,18 @@ final class No-Nonsense_Google_Analytics {
 	/**
 	 * Attach other plugin classes to the base plugin class.
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @return void
 	 */
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
-		// $this->plugin_class = new N-NGA_Plugin_Class( $this );
+		// $this->plugin_class = new NNGA_Plugin_Class( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
 	 * Add hooks and filters
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @return void
 	 */
 	public function hooks() {
@@ -151,7 +151,7 @@ final class No-Nonsense_Google_Analytics {
 	/**
 	 * Activate the plugin
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @return void
 	 */
 	public function _activate() {
@@ -163,7 +163,7 @@ final class No-Nonsense_Google_Analytics {
 	 * Deactivate the plugin
 	 * Uninstall routines should be in uninstall.php
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @return void
 	 */
 	public function _deactivate() {}
@@ -171,19 +171,19 @@ final class No-Nonsense_Google_Analytics {
 	/**
 	 * Init hooks
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @return void
 	 */
 	public function init() {
-		// bail early if requirements aren't met
+		// Bail early if requirements aren't met.
 		if ( ! $this->check_requirements() ) {
 			return;
 		}
-		
-		// load translated strings for plugin
+
+		// Load translated strings for plugin.
 		load_plugin_textdomain( 'no-nonsense-google-analytics', false, dirname( $this->basename ) . '/languages/' );
 
-		// initialize plugin classes
+		// Initialize plugin classes.
 		$this->plugin_classes();
 	}
 
@@ -191,11 +191,11 @@ final class No-Nonsense_Google_Analytics {
 	 * Check if the plugin meets requirements and
 	 * disable it if they are not present.
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @return boolean result of meets_requirements
 	 */
 	public function check_requirements() {
-		// bail early if pluginmeets requirements
+		// Bail early if plugin meets requirements.
 		if ( $this->meets_requirements() ) {
 			return true;
 		}
@@ -212,7 +212,7 @@ final class No-Nonsense_Google_Analytics {
 	/**
 	 * Deactivates this plugin, hook this function on admin_init.
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @return void
 	 */
 	public function deactivate_me() {
@@ -226,7 +226,7 @@ final class No-Nonsense_Google_Analytics {
 	/**
 	 * Check that all plugin requirements are met
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @return boolean True if requirements are met.
 	 */
 	public function meets_requirements() {
@@ -240,25 +240,25 @@ final class No-Nonsense_Google_Analytics {
 	/**
 	 * Adds a notice to the dashboard if the plugin requirements are not met
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @return void
 	 */
 	public function requirements_not_met_notice() {
-		// compile default message
-		$default_message = sprintf( 
-			__( 'No-Nonsense Google Analytics is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'no-nonsense-google-analytics' ), 
-			admin_url( 'plugins.php' ) 
+		// Compile default message.
+		$default_message = sprintf(
+			__( 'No-Nonsense Google Analytics is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'no-nonsense-google-analytics' ),
+			admin_url( 'plugins.php' )
 		);
-		
-		// default details to null
+
+		// Default details to null.
 		$details = null;
 
-		// add details if any exist
+		// Add details if any exist.
 		if ( ! empty( $this->activation_errors ) && is_array( $this->activation_errors ) ) {
 			$details = '<small>' . implode( '</small><br /><small>', $this->activation_errors ) . '</small>';
 		}
 
-		// output errors
+		// Output errors.
 		?>
 		<div id="message" class="error">
 			<p><?php echo $default_message; ?></p>
@@ -270,7 +270,7 @@ final class No-Nonsense_Google_Analytics {
 	/**
 	 * Magic getter for our object.
 	 *
-	 * @since  NEXT
+	 * @since  1.0.0
 	 * @param string $field Field to get.
 	 * @throws Exception Throws an exception if the field is invalid.
 	 * @return mixed
@@ -290,14 +290,14 @@ final class No-Nonsense_Google_Analytics {
 }
 
 /**
- * Grab the No-Nonsense_Google_Analytics object and return it.
- * Wrapper for No-Nonsense_Google_Analytics::get_instance()
+ * Grab the No_Nonsense_Google_Analytics object and return it.
+ * Wrapper for No_Nonsense_Google_Analytics::get_instance()
  *
- * @since  NEXT
- * @return No-Nonsense_Google_Analytics  Singleton instance of plugin class.
+ * @since  1.0.0
+ * @return No_Nonsense_Google_Analytics  Singleton instance of plugin class.
  */
 function no_nonsense_google_analytics() {
-	return No-Nonsense_Google_Analytics::get_instance();
+	return No_Nonsense_Google_Analytics::get_instance();
 }
 
 // Kick it off.

@@ -8,10 +8,10 @@ class BaseTest extends WP_UnitTestCase {
 	}
 
 	function test_class_exists() {
-		$this->assertTrue( class_exists( 'No-Nonsense_Google_Analytics') );
+		$this->assertTrue( class_exists( 'No_Nonsense_Google_Analytics') );
 	}
 	
 	function test_get_instance() {
-		$this->assertTrue( no_nonsense_google_analytics() instanceof No-Nonsense_Google_Analytics );
+		$this->assertTrue( no_nonsense_google_analytics() instanceof No_Nonsense_Google_Analytics );
 	}
 }
