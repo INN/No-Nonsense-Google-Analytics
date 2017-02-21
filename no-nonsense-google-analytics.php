@@ -36,7 +36,7 @@
  */
 
 // Include additional php files here.
-// require 'includes/admin.php';
+require 'includes/class-settings-page.php';
 
 /**
  * Main initiation class
@@ -94,6 +94,14 @@ final class No_Nonsense_Google_Analytics {
 	protected static $single_instance = null;
 
 	/**
+	 * Instance of NNGA_Settings_Page
+	 *
+	 * @since1.0.0
+	 * @var NNGA_Settings_Page
+	 */
+	protected $settings_page;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  1.0.0
@@ -126,7 +134,7 @@ final class No_Nonsense_Google_Analytics {
 	 */
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
-		// $this->plugin_class = new NNGA_Plugin_Class( $this );
+		$this->settings_page = new NNGA_Settings_Page( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
