@@ -37,6 +37,7 @@
 
 // Include additional php files here.
 require 'includes/class-settings-page.php';
+require 'includes/class-tracking-code.php';
 
 /**
  * Main initiation class
@@ -102,6 +103,14 @@ final class No_Nonsense_Google_Analytics {
 	protected $settings_page;
 
 	/**
+	 * Instance of NNGA_Tracking_Code
+	 *
+	 * @since1.0.0
+	 * @var NNGA_Tracking_Code
+	 */
+	protected $tracking_code;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  1.0.0
@@ -135,6 +144,7 @@ final class No_Nonsense_Google_Analytics {
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
 		$this->settings_page = new NNGA_Settings_Page( $this );
+		$this->tracking_code = new NNGA_Tracking_Code( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
