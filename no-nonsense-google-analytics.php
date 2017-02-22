@@ -179,7 +179,10 @@ final class No_Nonsense_Google_Analytics {
 	 * @since  1.0.0
 	 * @return void
 	 */
-	public function _deactivate() {}
+	public function _deactivate() {
+		// Leave no trace
+		delete_option( 'no_nonsense_google_analytics' );
+	}
 
 	/**
 	 * Init hooks
