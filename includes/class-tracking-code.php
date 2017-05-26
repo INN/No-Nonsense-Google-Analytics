@@ -59,10 +59,10 @@ class NNGA_Tracking_Code {
 
 					// Name all codes after the first one.
 					if ( 0 === $count ) {
-						$create[ $key ] = "ga('create', '" . $code . "', 'auto');";
+						$create[ $key ] = "ga('create', '" . trim( $code ) . "', 'auto');";
 						$send[ $key ] = "ga('send', 'pageview');";
 					} else {
-							$create[ $key ] = "ga('create', '" . $code . "', 'auto', 'code_" . $key . "');";
+							$create[ $key ] = "ga('create', '" . trim( $code ) . "', 'auto', 'code_" . $key . "');";
 							$send[ $key ] = "ga('code_" . $key . ".send', 'pageview');";
 					}
 					$count++;
