@@ -3,7 +3,7 @@
  * Plugin Name: No-Nonsense Google Analytics
  * Plugin URI:  https://nerds.inn.org
  * Description: Simple Google Analytics plugin for embedding multiple Universal Analytics codes on your site. No dashboard, no reports.
- * Version:     1.1
+ * Version:     1.2
  * Author:      inn_nerds
  * Author URI:  https://nerds.inn.org
  * Donate link: https://nerds.inn.org
