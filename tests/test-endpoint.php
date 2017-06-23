@@ -13,6 +13,9 @@ class NNGA_Endpoint_Test extends WP_UnitTestCase {
 		global $wp_rest_server;
 		$this->server = $wp_rest_server = new WP_REST_Server;
 		do_action( 'rest_api_init' );
+
+		$this->subscriber = $this->factory->user->create( array( 'role' => 'subscriber' ) );
+		$this->administrator = $this->factory->user->create( array( 'role' => 'administrator' ) );
 	}
 
 	/**
@@ -38,8 +41,71 @@ class NNGA_Endpoint_Test extends WP_UnitTestCase {
 	 *
 	 * @since  1.0.0
 	 */
-	function test_sample() {
-		$this->assertTrue( true );
+	public function test_get() {
+		$request = new WP_REST_Request( 'GET', '/no-nonsense-google-analytics/v1/tracking-code' );
+		$response = $this->server->dispatch( $request );
+		$this->assertResponseStatus( 200, $response );
+	}
+
+	/**
+	 * Replace this with some actual testing code.
+	 *
+	 * @since  1.0.0
+	 */
+	public function test_unauthorized_update() {
+		wp_set_current_user( 0 );
+
+		$request = new WP_REST_Request( 'POST', '/no-nonsense-google-analytics/v1/tracking-code' );
+		$request->set_param( 'code', 'UA-12345, UA-678910' );
+		$response = $this->server->dispatch( $request );
+		$this->assertResponseStatus( 403, $response );
+	}
+
+	/**
+	 * Replace this with some actual testing code.
+	 *
+	 * @since  1.0.0
+	 */
+	public function test_authorized_update() {
+		wp_set_current_user( $this->administrator );
+
+		$request = new WP_REST_Request( 'POST', '/no-nonsense-google-analytics/v1/tracking-code' );
+		$request->set_param( 'code', 'UA-12345, UA-678910' );
+		$response = $this->server->dispatch( $request );
+		$this->assertResponseStatus( 200, $response );
+		$this->assertEquals( 'UA-12345, UA-678910', get_option( 'no_nonsense_google_analytics' ) );
+	}
+
+	/**
+	 * Replace this with some actual testing code.
+	 *
+	 * @since  1.0.0
+	 */
+	public function test_unauthorized_delete() {
+		wp_set_current_user( 0 );
+
+		$request = new WP_REST_Request( 'POST', '/no-nonsense-google-analytics/v1/tracking-code' );
+		$request->set_param( 'force', true );
+		$response = $this->server->dispatch( $request );
+		$this->assertResponseStatus( 403, $response );
+	}
+
+	/**
+	 * Replace this with some actual testing code.
+	 *
+	 * @since  1.0.0
+	 */
+	public function test_authorized_delete() {
+		wp_set_current_user( $this->administrator );
+
+		$request = new WP_REST_Request( 'POST', '/no-nonsense-google-analytics/v1/tracking-code' );
+		$request->set_param( 'force', true );
+		$response = $this->server->dispatch( $request );
+		$this->assertResponseStatus( 200, $response );
+		$this->assertResponseData( array(
+			'code' => null,
+		), $response );
+		$this->assertEquals( false, get_option( 'no_nonsense_google_analytics' ) );
 	}
 
 	protected function assertResponseStatus( $status, $response, $error_code = '', $debug = false ) {
