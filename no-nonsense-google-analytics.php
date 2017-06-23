@@ -38,6 +38,7 @@
 // Include additional php files here.
 require 'includes/class-settings-page.php';
 require 'includes/class-tracking-code.php';
+require 'includes/class-endpoint.php';
 
 /**
  * Main initiation class
@@ -111,6 +112,14 @@ final class No_Nonsense_Google_Analytics {
 	protected $tracking_code;
 
 	/**
+	 * Instance of NNGA_Endpoint
+	 *
+	 * @since1.0.0
+	 * @var NNGA_Endpoint
+	 */
+	protected $endpoint;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  1.0.0
@@ -145,6 +154,7 @@ final class No_Nonsense_Google_Analytics {
 		// Attach other plugin classes to the base plugin class.
 		$this->settings_page = new NNGA_Settings_Page( $this );
 		$this->tracking_code = new NNGA_Tracking_Code( $this );
+		$this->endpoint = new NNGA_Endpoint( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
