@@ -1,24 +1,24 @@
 <?php
 /**
  * Plugin Name: No-Nonsense Google Analytics
- * Plugin URI:  https://nerds.inn.org
+ * Plugin URI:  https://labs.inn.org
  * Description: Simple Google Analytics plugin for embedding multiple Universal Analytics codes on your site. No dashboard, no reports.
  * Version:     1.2
- * Author:      inn_nerds
- * Author URI:  https://nerds.inn.org
- * Donate link: https://nerds.inn.org
+ * Author:      innlabs
+ * Author URI:  https://labs.inn.org
+ * Donate link: https://labs.inn.org
  * License:     GPLv2
  * Text Domain: no-nonsense-google-analytics
  * Domain Path: /languages
  *
- * @link https://nerds.inn.org
+ * @link https://labs.inn.org
  *
  * @package No-Nonsense Google Analytics
  * @version 1.0.0
  */
 
 /**
- * Copyright (c) 2017 inn_nerds (email : nerds@inn.org)
+ * Copyright (c) 2017 innlabs (email : labs@inn.org)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at

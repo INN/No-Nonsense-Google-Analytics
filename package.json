@@ -4,8 +4,8 @@
 	"version": "1.0.0",
 	"description": "Simple Google Analytics plugin for embedding multiple Universal Analytics codes on your site. No dashboard, no reports.",
 	"author": {
-		"name": "inn_nerds",
-		"url": "https://nerds.inn.org"
+		"name": "innlabs",
+		"url": "https://labs.inn.org"
 	},
 	"license": "GPLv2",
 	"devDependencies": {

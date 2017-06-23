@@ -1,4 +1,4 @@
-# Copyright (C) 2017 inn_nerds
+# Copyright (C) 2017 innlabs
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
@@ -27,7 +27,7 @@ msgid "No-Nonsense Google Analytics"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://nerds.inn.org"
+msgid "https://labs.inn.org"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -37,5 +37,5 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "inn_nerds"
+msgid "innlabs"
 msgstr ""
