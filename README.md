@@ -1,16 +1,16 @@
 # No-Nonsense Google Analytics #
-**Contributors:**      inn_nerds  
+**Contributors:**      innlabs
 **Donate link:**       http://nerds.inn.org  
-**Tags:**  
+**Tags:**              google analytics, google analytics multiple, UA code, Rest API
 **Requires at least:** 4.4  
-**Tested up to:**      4.7.2
-**Stable tag:**        1.1  
+**Tested up to:**      4.8
+**Stable tag:**        1.2  
 **License:**           GPLv2  
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html  
 
 ## Description ##
 
-Simple Google Analytics plugin for embedding multiple Universal Analytics codes on your site. No dashboard, no reports.
+Simple, vanilla Google Analytics plugin for adding Google Analytics tracking to your site. Supports Universal Analytics, multiple tracking codes, and provides Rest API access.
 
 ## Installation ##
 
@@ -27,6 +27,9 @@ Simple Google Analytics plugin for embedding multiple Universal Analytics codes 
 
 ## Changelog ##
 
+### 1.2 ###
+* Added Rest API endpoint
+
 ### 1.1 ###
 * Trim output on UA Codes
 
@@ -34,6 +37,9 @@ Simple Google Analytics plugin for embedding multiple Universal Analytics codes 
 * First release
 
 ## Upgrade Notice ##
+
+### 1.2 ###
+* Added Rest API endpoint
 
 ### 1.1 ###
 * Trim output on UA Codes

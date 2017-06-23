@@ -2,14 +2,14 @@
 /**
  * No-Nonsense Google Analytics Endpoint.
  *
- * @since   1.0.0
+ * @since   1.2.0
  * @package No_Nonsense_Google_Analytics
  */
 
 /**
  * Endpoint class.
  *
- * @since   1.0.0
+ * @since   1.2.0
  * @package No_Nonsense_Google_Analytics
  */
 if ( class_exists( 'WP_REST_Controller' ) ) {
@@ -18,14 +18,14 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		 * Parent plugin class.
 		 *
 		 * @var   No_Nonsense_Google_Analytics
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 */
 		protected $plugin = null;
 
 		/**
 		 * Constructor.
 		 *
-		 * @since  1.0.0
+		 * @since  1.2.0
 		 *
 		 * @param  No_Nonsense_Google_Analytics $plugin Main plugin object.
 		 */
@@ -37,7 +37,7 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		/**
 		 * Add our hooks.
 		 *
-		 * @since  1.0.0
+		 * @since  1.2.0
 		 */
 		public function hooks() {
 			add_action( 'rest_api_init', array( $this, 'register_routes' ) );
@@ -46,7 +46,7 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		/**
 	     * Register the routes for the objects of the controller.
 	     *
-	     * @since  1.0.0
+	     * @since  1.2.0
 	     */
 		public function register_routes() {
 
@@ -89,7 +89,7 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		/**
 		 * Get tracking code.
 		 *
-		 * @since  1.0.0
+		 * @since  1.2.0
 		 *
 		 * @param  WP_REST_Request $request Full details about the request.
 		 */
@@ -100,7 +100,7 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		/**
 		 * Permission check for getting tracking code.
 		 *
-		 * @since  1.0.0
+		 * @since  1.2.0
 		 *
 		 * @param  WP_REST_Request $request Full details about the request.
 		 */
@@ -111,7 +111,7 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		/**
 		 * Update tracking codes.
 		 *
-		 * @since  1.0.0
+		 * @since  1.2.0
 		 *
 		 * @param  WP_REST_Request $request Full details about the request.
 		 */
@@ -123,7 +123,7 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		/**
 		 * Permission check for updating items.
 		 *
-		 * @since  1.0.0
+		 * @since  1.2.0
 		 *
 		 * @param  WP_REST_Request $request Full details about the request.
 		 */
@@ -138,7 +138,7 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		/**
 		 * Delete tracking code.
 		 *
-		 * @since  1.0.0
+		 * @since  1.2.0
 		 *
 		 * @param  WP_REST_Request $request Full details about the request.
 		 */
@@ -154,7 +154,7 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		/**
 		 * Permission check for deleting items.
 		 *
-		 * @since  1.0.0
+		 * @since  1.2.0
 		 *
 		 * @param  WP_REST_Request $request Full details about the request.
 		 */
