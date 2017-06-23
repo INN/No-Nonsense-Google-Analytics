@@ -4,7 +4,7 @@
 **Tags:**              google analytics, google analytics multiple, UA code, Rest API
 **Requires at least:** 4.4  
 **Tested up to:**      4.8
-**Stable tag:**        1.2  
+**Stable tag:**        1.3  
 **License:**           GPLv2  
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -27,6 +27,9 @@ Simple, vanilla Google Analytics plugin for adding Google Analytics tracking to 
 
 ## Changelog ##
 
+### 1.3 ###
+* Added Rest API endpoint for tracking snippet
+
 ### 1.2 ###
 * Added Rest API endpoint
 
@@ -37,6 +40,9 @@ Simple, vanilla Google Analytics plugin for adding Google Analytics tracking to 
 * First release
 
 ## Upgrade Notice ##
+
+### 1.3 ###
+* Added Rest API endpoint for tracking
 
 ### 1.2 ###
 * Added Rest API endpoint

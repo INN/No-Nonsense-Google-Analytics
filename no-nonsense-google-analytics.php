@@ -3,7 +3,7 @@
  * Plugin Name: No-Nonsense Google Analytics
  * Plugin URI:  https://labs.inn.org
  * Description: Simple Google Analytics plugin for embedding multiple Universal Analytics codes on your site. No dashboard, no reports.
- * Version:     1.2
+ * Version:     1.3
  * Author:      innlabs
  * Author URI:  https://labs.inn.org
  * Donate link: https://labs.inn.org

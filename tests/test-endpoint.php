@@ -111,7 +111,7 @@ class NNGA_Endpoint_Test extends WP_UnitTestCase {
 	/**
 	 * Test get tracking snippet request.
 	 *
-	 * @since  1.2.0
+	 * @since  1.3.0
 	 */
 	public function test_get_tracking_snippet() {
 		$request = new WP_REST_Request( 'GET', '/no-nonsense-google-analytics/v1/snippet' );
