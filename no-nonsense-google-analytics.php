@@ -164,10 +164,6 @@ final class No_Nonsense_Google_Analytics {
 	 * @return void
 	 */
 	public function hooks() {
-		// Priority needs to be:
-		// < 10 for CPT_Core,
-		// < 5 for Taxonomy_Core,
-		// 0 Widgets because widgets_init runs at init priority 1.
 		add_action( 'init', array( $this, 'init' ), 0 );
 	}
 
@@ -201,6 +197,7 @@ final class No_Nonsense_Google_Analytics {
 	 * @return void
 	 */
 	public function init() {
+
 		// Load translated strings for plugin.
 		load_plugin_textdomain( 'no-nonsense-google-analytics', false, dirname( $this->basename ) . '/languages/' );
 
@@ -219,6 +216,30 @@ final class No_Nonsense_Google_Analytics {
 		// any developers from accidentally calling it too early and breaking things.
 		if ( function_exists( 'deactivate_plugins' ) ) {
 			deactivate_plugins( $this->basename );
+		}
+	}
+	/**
+	 * Magic getter for our object.
+	 *
+	 * @since  0.0.0
+	 *
+	 * @param  string $field Field to get.
+	 * @throws Exception     Throws an exception if the field is invalid.
+	 * @return mixed         Value of the field.
+	 */
+	public function __get( $field ) {
+		switch ( $field ) {
+			case 'version':
+				return self::VERSION;
+			case 'basename':
+			case 'url':
+			case 'path':
+			case 'settings_page':
+			case 'tracking_code':
+			case 'endpoint':
+				return $this->$field;
+			default:
+				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
 		}
 	}
 }

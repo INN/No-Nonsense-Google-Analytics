@@ -12,6 +12,6 @@ class NNGA_Tracking_Code_Test extends WP_UnitTestCase {
 	}
 
 	function test_class_access() {
-		$this->assertTrue( no_nonsense_google_analytics()->tracking-code instanceof NNGA_Tracking_Code );
+		$this->assertTrue( no_nonsense_google_analytics()->tracking_code instanceof NNGA_Tracking_Code );
 	}
 }
