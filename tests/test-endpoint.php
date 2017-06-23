@@ -41,7 +41,7 @@ class NNGA_Endpoint_Test extends WP_UnitTestCase {
 	 *
 	 * @since  1.2.0
 	 */
-	public function test_get() {
+	public function test_get_tracking_code() {
 		$request = new WP_REST_Request( 'GET', '/no-nonsense-google-analytics/v1/tracking-code' );
 		$response = $this->server->dispatch( $request );
 		$this->assertResponseStatus( 200, $response );
@@ -106,6 +106,17 @@ class NNGA_Endpoint_Test extends WP_UnitTestCase {
 			'code' => null,
 		), $response );
 		$this->assertEquals( false, get_option( 'no_nonsense_google_analytics' ) );
+	}
+
+	/**
+	 * Test get tracking snippet request.
+	 *
+	 * @since  1.2.0
+	 */
+	public function test_get_tracking_snippet() {
+		$request = new WP_REST_Request( 'GET', '/no-nonsense-google-analytics/v1/snippet' );
+		$response = $this->server->dispatch( $request );
+		$this->assertResponseStatus( 200, $response );
 	}
 
 	/**

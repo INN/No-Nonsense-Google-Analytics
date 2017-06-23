@@ -79,11 +79,22 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 					'args'                => array(
 						'force' => array(
 							'default' => false,
-							),
 						),
 					),
-				)
-			);
+				),
+			));
+
+			register_rest_route( $namespace, '/' . 'snippet', array(
+				array(
+					'methods'             => WP_REST_Server::READABLE,
+					'callback'            => array( $this, 'get_tracking_snippet' ),
+					'args'                => array(
+						'context' => array(
+							'default' => 'view',
+						),
+					),
+				),
+			));
 		}
 
 		/**
@@ -95,6 +106,45 @@ if ( class_exists( 'WP_REST_Controller' ) ) {
 		 */
 		public function get_tracking_code( $request ) {
 			return get_option( 'no_nonsense_google_analytics' );
+		}
+
+		/**
+		 * Get tracking snippet.
+		 *
+		 * @since  1.2.0
+		 *
+		 * @param  WP_REST_Request $request Full details about the request.
+		 */
+		public function get_tracking_snippet( $request ) {
+			$raw_codes = get_option( 'no_nonsense_google_analytics' );
+			if ( $raw_codes ) {
+				$codes = explode( ',', $raw_codes );
+				$count = 0;
+				foreach ( $codes as $key => $code ) {
+
+					// Name all codes after the first one.
+					if ( 0 === $count ) {
+						$create[ $key ] = "ga('create', '" . trim( $code ) . "', 'auto');";
+						$send[ $key ] = "ga('send', 'pageview');";
+					} else {
+							$create[ $key ] = "ga('create', '" . trim( $code ) . "', 'auto', 'code_" . $key . "');";
+							$send[ $key ] = "ga('code_" . $key . ".send', 'pageview');";
+					}
+					$count++;
+				}
+
+				$snippet = "<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');";
+				$snippet .= "\n" . implode( "\n", $create ) . "\n" . implode( "\n", $send );
+				$snippet .= "</script>
+<!-- End Google Analytics -->";
+
+				return $snippet;
+			}
 		}
 
 		/**
